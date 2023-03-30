@@ -77,14 +77,23 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# nvm conf
+
+export NVM_AUTO_USE=true
+export NVM_LAZY_LOAD=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('cd')
+
 plugins=(
-  zsh-pyenv
   zsh-nvm
+  zsh-pyenv
   zsh-autosuggestions
   zsh-syntax-highlighting
   git
   extract
   universalarchive
+  sudo
+  docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -125,6 +134,10 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # rust related
 path+=("$HOME/.cargo/env")
 
-#
+# export 
 path+=("/usr/sbin")
 export PATH
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
