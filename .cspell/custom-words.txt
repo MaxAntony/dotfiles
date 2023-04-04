@@ -1,4 +1,8 @@
 huancayo
+instagram
+facebook
+youtube
+tiktok
 jsdoc
 vercel
 sercorsac
