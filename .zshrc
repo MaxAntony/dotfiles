@@ -132,8 +132,12 @@ source $ZSH/oh-my-zsh.sh
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 
-# rust related
+# rust
 path+=("$HOME/.cargo/env")
+
+# flutter
+path+=("$HOME/.local/myApps/flutter/bin")
+# https://stackoverflow.com/questions/66506957/how-to-set-environment-variable-of-google-chrome-for-flutter-2-web-on-arch-linux
 
 # export 
 path+=("/usr/sbin")
@@ -142,3 +146,5 @@ export PATH
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+
