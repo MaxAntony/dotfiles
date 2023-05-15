@@ -1,4 +1,8 @@
 huancayo
+nginx
+mastercard
+paypal
+jsonls
 instagram
 facebook
 youtube
