@@ -6,3 +6,6 @@
 - AwesomeWM
 - picom-pijulius-git
 - Neovim-git
+- thunar
+    - tumbler
+    - ffmpegthumbnailer
