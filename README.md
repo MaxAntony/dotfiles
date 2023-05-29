@@ -9,3 +9,6 @@
 - thunar
     - tumbler
     - ffmpegthumbnailer
+
+### change dns 
+https://askubuntu.com/questions/721080/how-to-change-dns-of-network-from-terminal
