@@ -4,15 +4,78 @@
 
 - Arch Linux
 - AwesomeWM
-- picom-pijulius-git
-- Neovim-git
-- thunar
-  - tumbler
-  - ffmpegthumbnailer
 
-### change dns
+### cambiar DNS
 
 https://askubuntu.com/questions/721080/how-to-change-dns-of-network-from-terminal
+
+### Instalar y configurar OBS
+
+- Instalar obs from repo
+- Instalar `sudo pacman -S v4l2loopback-utils v4l2loopback-dkms linux-headers` 
+- En /etc/modules-load.d/v4l2loopback.conf escribir `v4l2loopback`
+- En /etc/modprobe.d/v4l2loopback.conf escribir `options v4l2loopback devices=1 video_nr=10 card_label="OBS Cam" exclusive_caps=1`
+- `sudo usermod -aG video max`
+- `sudo modprobe v4l2loopback`
+- reiniciar
+
+### Nvidia
+Si el video nvidia falla y los 3 monitores tienen la misma imagen o Si haces lspci -k y en el controlador nvidia dice que esta usando nouveau hacer lo siguiente
+
+- Agregar a `/etc/default/grub` en la linea que tenga `GRUB_CMDLINE_LINUX_DEFAULT` agregar al final esto `rdblacklist=nouveau`
+- ejecutar `grub-mkconfig -o /boot/grub/grub.cfg`	
+- Ir a `/etc/modprobe.d/` crear un archivo `modprobe.d` y agregar dentro `blacklist nouveau`
+- Recompilar con `sudo mkinitcpio -p linux`
+
+### ZSH
+Poner zsh como shell por defecto
+- `chsh -s $(which zsh)`
+
+### Sonido
+Instalar pipewire
+https://bbs.archlinux.org/viewtopic.php?id=273969
+https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/20705
+
+- `sudo pacman -S pipewire pipewire-{jack,alsa,pulse}`
+
+### Thunar
+- `sudo pacman -S thunar thunar-volman gvfs tumbler ffmpegthumbnailer`
+- reiniciar
+- Go to edit>preferences>advanced>volume management>configure>activate “mount removable drives…” “mount removable media …”
+
+### Neovim
+- `sudo pacman -S fd xclip ripgrep`
+- `pip install neovim`
+- `npm i -g neovim`
+
+### Utils
+- `sudo pacman -S bat btop docker docker-compose zip unzip rsync wget curl rustup`
+- `cargo install lfs`
+
+### Polkit
+
+Escalar privilegios a root en apps
+(Lxsession  o lxpolkit es el agente polkit por default en algunas apps como el widget de awesome pacma, tener cuidado por que vamos a usar otro agente )
+Instalar el paquete polkit-gnome (no es muy pesado y no tiene dependencias creo),Al parecer lxsession es el polkit por default por lo que no es nesesario llamarlo sino que automaticamente se va a llamar al inicio
+Los demas agentes si debemos llamarlos y deben de ejecutarse en el fondo (para eso la funcion run) para que se puedan usar en el entorno grafico
+
+- instalar `polkit-gnome`
+- Editar `~/.config/awesome/autorun.sh` agregar `run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1` para que corra en segundo plano durante toda la sesion
+
+## Errores
+### Pantalla negra por error en particiones
+Que hacer si sale un error que dice que no encuentra bloques o que los discos no estan del mismo tamano que antes, me ocurrio con el dual boot, estando en windows actualizando volvi a arh y me quedo una pantalla negra con unas letras sobre el disco o las particiones 
+
+- lanzar arch desde un usb booteable
+- montar las particiones en /mnt (seguir los videos de Linux Made Simple )como estaban originalmente
+- generar un nueva configuracion de fstab
+- generar una nueva configuracion de grub con grub-mkconfig
+estos pasos los ves en el video de linux made simple, y asi deberia de funcionar
+
+### Hora no Sincronizada en dual boot
+- https://wiki.archlinux.org/title/System_time#:~:text=Run%20ntpd%20%2Dqg%20to%20manually,time%20to%20the%20hardware%20clock.
+- https://unix.stackexchange.com/questions/60772/i-messed-up-my-system-clock-in-arch-linux
+
 
 ### packages
 
