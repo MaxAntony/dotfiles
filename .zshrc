@@ -147,4 +147,8 @@ export PATH
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-
+# Deno version manager
+export DVM_DIR="/home/max/.dvm"
+export PATH="$DVM_DIR/bin:$PATH"
+export DVM_DIR="/home/max/.dvm"
+export PATH="$DVM_DIR/bin:$PATH"
