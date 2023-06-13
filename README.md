@@ -39,6 +39,7 @@ https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/2
 - `sudo pacman -S pipewire pipewire-{jack,alsa,pulse}`
 
 ### Thunar
+[arch wiki](https://wiki.archlinux.org/title/thunar)
 - `sudo pacman -S thunar thunar-volman gvfs tumbler ffmpegthumbnailer`
 - reiniciar
 - Go to edit>preferences>advanced>volume management>configure>activate “mount removable drives…” “mount removable media …”
