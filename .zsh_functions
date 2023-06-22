@@ -1,0 +1,8 @@
+npm() {
+  if [ -e yarn.lock ]; then
+    echo "⚠️ This is a yarn project. Why don't you use it ⁉️  "
+  else
+    command npm $@
+  fi
+}
+
