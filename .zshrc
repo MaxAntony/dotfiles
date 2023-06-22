@@ -81,8 +81,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # nvm conf
 
 export NVM_AUTO_USE=true
-export NVM_LAZY_LOAD=true
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=('cd')
+# disable nvm lazy load because force using yarn in yarn proyect with npm function in .zsh_functions
+# export NVM_LAZY_LOAD=true
+# export NVM_LAZY_LOAD_EXTRA_COMMANDS=('cd')
 
 plugins=(
   zsh-nvm
@@ -152,3 +153,5 @@ export DVM_DIR="/home/max/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
 export DVM_DIR="/home/max/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
+
+source ~/.zsh_functions
