@@ -89,7 +89,8 @@ plugins=(
   zsh-nvm
   zsh-pyenv
   zsh-autosuggestions
-  zsh-syntax-highlighting
+  # zsh-syntax-highlighting
+  fast-syntax-highlighting
   git
   extract
   universalarchive
