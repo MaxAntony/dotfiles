@@ -5,6 +5,18 @@
 - Arch Linux
 - AwesomeWM
 
+## AUR documentation
+
+https://wiki.archlinux.org/title/Arch_User_Repository#What_is_the_difference_between_foo_and_foo-git_packages?
+
+### xplr file manager
+
+https://xplr.dev/en/introduction
+
+### zsh plugins
+
+https://github.com/unixorn/awesome-zsh-plugins#plugins
+
 ### cambiar DNS
 
 https://askubuntu.com/questions/721080/how-to-change-dns-of-network-from-terminal
@@ -88,6 +100,10 @@ Que hacer si sale un error que dice que no encuentra bloques o que los discos no
 
 - https://wiki.archlinux.org/title/System_time#:~:text=Run%20ntpd%20%2Dqg%20to%20manually,time%20to%20the%20hardware%20clock.
 - https://unix.stackexchange.com/questions/60772/i-messed-up-my-system-clock-in-arch-linux
+
+### activar wifi
+
+- seguir el tutorial de linux made simple de arch con uefi, al final agregar el usuario al grupo network y reiniciar
 
 ### packages
 
