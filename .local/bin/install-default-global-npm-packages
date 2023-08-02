@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 echo "Installing global utilities"
-npm i -g npm@latest neovim@latest @angular/cli@latest @nestjs/cli@latest @tsed/cli@latest yarn@latest tldr@latest typescript@latest pnpm@latest
+npm i -g npm@latest neovim@latest @angular/cli@latest @nestjs/cli@latest @tsed/cli@latest yarn@latest tldr@latest typescript@latest pnpm@latest gitmoji-cli@latest
 pip install neovim pynvim
