@@ -1,27 +1,33 @@
 # My dotfiles
 
-## Dependencies
+## Migration
+
+- save .zsh_history file, its not in dotenv repo
+
+## Install
+
+### Dependencies
 
 - Arch Linux
 - AwesomeWM
 
-## AUR documentation
+### AUR documentation
 
 https://wiki.archlinux.org/title/Arch_User_Repository#What_is_the_difference_between_foo_and_foo-git_packages?
 
-### xplr file manager
+#### xplr file manager
 
 https://xplr.dev/en/introduction
 
-### zsh plugins
+#### zsh plugins
 
 https://github.com/unixorn/awesome-zsh-plugins#plugins
 
-### cambiar DNS
+#### cambiar DNS
 
 https://askubuntu.com/questions/721080/how-to-change-dns-of-network-from-terminal
 
-### Instalar y configurar OBS
+#### Instalar y configurar OBS
 
 - Instalar obs from repo
 - Instalar `sudo pacman -S v4l2loopback-utils v4l2loopback-dkms linux-headers`
@@ -31,7 +37,7 @@ https://askubuntu.com/questions/721080/how-to-change-dns-of-network-from-termina
 - `sudo modprobe v4l2loopback`
 - reiniciar
 
-### Nvidia
+#### Nvidia
 
 Si el video nvidia falla y los 3 monitores tienen la misma imagen o Si haces lspci -k y en el controlador nvidia dice que esta usando nouveau hacer lo siguiente
 
@@ -40,13 +46,13 @@ Si el video nvidia falla y los 3 monitores tienen la misma imagen o Si haces lsp
 - Ir a `/etc/modprobe.d/` crear un archivo `modprobe.d` y agregar dentro `blacklist nouveau`
 - Recompilar con `sudo mkinitcpio -p linux`
 
-### ZSH
+#### ZSH
 
 Poner zsh como shell por defecto
 
 - `chsh -s $(which zsh)`
 
-### Sonido
+#### Sonido
 
 Instalar pipewire
 https://bbs.archlinux.org/viewtopic.php?id=273969
@@ -54,7 +60,7 @@ https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/2
 
 - `sudo pacman -S pipewire pipewire-{jack,alsa,pulse}`
 
-### Thunar
+#### Thunar
 
 [arch wiki](https://wiki.archlinux.org/title/thunar)
 
@@ -63,18 +69,18 @@ https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/2
 - reiniciar
 - Go to edit>preferences>advanced>volume management>configure>activate “mount removable drives…” “mount removable media …”
 
-### Neovim
+#### Neovim
 
 - `sudo pacman -S fd xclip ripgrep`
 - `pip install neovim`
 - `npm i -g neovim`
 
-### Utils
+#### Utils
 
 - `sudo pacman -S bat btop docker docker-compose zip unzip rsync wget curl rustup`
 - `cargo install lfs`
 
-### Polkit
+#### Polkit
 
 Escalar privilegios a root en apps
 (Lxsession o lxpolkit es el agente polkit por default en algunas apps como el widget de awesome pacma, tener cuidado por que vamos a usar otro agente )
@@ -84,9 +90,9 @@ Los demas agentes si debemos llamarlos y deben de ejecutarse en el fondo (para e
 - instalar `polkit-gnome`
 - Editar `~/.config/awesome/autorun.sh` agregar `run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1` para que corra en segundo plano durante toda la sesion
 
-## Errores
+### Possible errors
 
-### Pantalla negra por error en particiones
+#### Pantalla negra por error en particiones
 
 Que hacer si sale un error que dice que no encuentra bloques o que los discos no estan del mismo tamano que antes, me ocurrio con el dual boot, estando en windows actualizando volvi a arh y me quedo una pantalla negra con unas letras sobre el disco o las particiones
 
@@ -96,16 +102,16 @@ Que hacer si sale un error que dice que no encuentra bloques o que los discos no
 - generar una nueva configuracion de grub con grub-mkconfig
   estos pasos los ves en el video de linux made simple, y asi deberia de funcionar
 
-### Hora no Sincronizada en dual boot
+#### Hora no Sincronizada en dual boot
 
 - https://wiki.archlinux.org/title/System_time#:~:text=Run%20ntpd%20%2Dqg%20to%20manually,time%20to%20the%20hardware%20clock.
 - https://unix.stackexchange.com/questions/60772/i-messed-up-my-system-clock-in-arch-linux
 
-### activar wifi
+#### activar wifi
 
 - seguir el tutorial de linux made simple de arch con uefi, al final agregar el usuario al grupo network y reiniciar
 
-### packages
+#### packages
 
 alacritty 0.12.1-1
 awesome 4.3-3
