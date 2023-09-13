@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Este script sincroniza las ramas locales de un repositorio git con su remoto.
+# Las ramas locales que no tienen una contraparte en el remoto serán eliminadas.
+# Las ramas locales que tienen una contraparte en el remoto serán actualizadas.
+
+# Verifica si el directorio actual es un repositorio git
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    # Informa al usuario si no está en un repositorio git y termina el script
+    echo "No estás dentro de un repositorio git. Por favor, navega a un repositorio git y vuelve a intentarlo."
+    exit 1
+fi
+
+# Actualiza la información del repositorio remoto y elimina las referencias a ramas remotas que ya no existen
+git fetch --prune --all
+
+# Guarda la rama actual en una variable para poder regresar a ella al final
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# Itera sobre todas las ramas locales
+for branch in $(git branch | sed 's/^\*//;s/^[ \t]*//'); do
+    # Verifica si la rama local tiene una correspondiente rama remota
+    if [ -z "$(git branch -r | grep "origin/$branch")" ]; then
+        # Si no tiene contraparte en el remoto, elimina la rama local
+        git branch -d $branch
+    else
+        # Si tiene contraparte en el remoto, cambia a esa rama y la sincroniza con el remoto
+        git checkout $branch
+        git pull origin $branch
+    fi
+done
+
+# Regresa a la rama original
+git checkout $current_branch
+
+# Informa al usuario que el proceso ha terminado con éxito
+echo "Todas las ramas han sido sincronizadas con éxito."
