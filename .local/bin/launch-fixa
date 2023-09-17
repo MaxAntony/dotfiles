@@ -1,0 +1,73 @@
+#!/bin/bash
+# -----------------------------------------------------------
+# CONFIGURACIÓN INICIAL
+# -----------------------------------------------------------
+
+# Define el nombre de la sesión de tmux.
+SESSION_NAME="fixa"
+
+# Define un array con los nombres de los directorios a utilizar.
+DIRECTORIES=("backend" "landing" "dashboard")
+
+# Establece la ruta base donde se encuentran los directorios.
+BASE_PATH="$HOME/dev/Fixa/Empresa"
+
+# -----------------------------------------------------------
+# CREACIÓN DE LA SESIÓN DE TMUX
+# -----------------------------------------------------------
+
+# Crea una nueva sesión de tmux en segundo plano, sin adjuntarla de inmediato.
+tmux new-session -d -s $SESSION_NAME
+
+# Inicializa un contador para las ventanas, empezando en 1 debido a la configuración personalizada de tmux.
+WINDOW_COUNT=1
+
+# -----------------------------------------------------------
+# CONFIGURACIÓN DE VENTANAS Y PANELES
+# -----------------------------------------------------------
+
+# Itera sobre cada directorio para configurar una ventana y sus paneles.
+for DIR in "${DIRECTORIES[@]}"; do
+    # Si no es la primera ventana, crea una nueva ventana.
+    if [ "$WINDOW_COUNT" -gt 1 ]; then
+        tmux new-window -t $SESSION_NAME
+    fi
+
+    # Renombra la ventana actual según el directorio en procesamiento.
+    tmux rename-window -t $SESSION_NAME:$WINDOW_COUNT $DIR
+
+    # Crea un nuevo panel para `nvim` y cambia al directorio deseado.
+    tmux split-window -t $SESSION_NAME:$WINDOW_COUNT -d "cd $BASE_PATH/$DIR && nvim"
+
+    # Cambia al directorio deseado en el panel principal de la ventana actual.
+    tmux send-keys -t $SESSION_NAME:$WINDOW_COUNT "cd $BASE_PATH/$DIR" C-m
+
+    # Define los comandos a ejecutar según el directorio.
+    case $DIR in
+        "backend")
+            # Inicia servicios específicos para el directorio "backend".
+            tmux send-keys -t $SESSION_NAME:$WINDOW_COUNT 'docker start dev-postgres' C-m
+            tmux send-keys -t $SESSION_NAME:$WINDOW_COUNT 'bun start:dev' C-m
+            ;;
+        "landing" | "dashboard")
+            # Verifica que el servicio GraphQL esté respondiendo con un tiempo máximo de espera de 60 segundos.
+            tmux send-keys -t $SESSION_NAME:$WINDOW_COUNT 'counter=0; while ! curl -s http://localhost:3001/graphql > /dev/null && [ $counter -lt 60 ]; do sleep 1; let counter++; done' C-m
+            # Una vez que el servicio GraphQL está disponible o el tiempo máximo ha pasado, inicia el comando relacionado.
+            tmux send-keys -t $SESSION_NAME:$WINDOW_COUNT 'bun dev' C-m
+            ;;
+        *)
+            # En caso de un directorio no especificado previamente, muestra un mensaje de error.
+            echo "Comando no definido para el directorio $DIR"
+            ;;
+    esac
+
+    # Incrementa el contador de ventanas para la próxima iteración.
+    WINDOW_COUNT=$((WINDOW_COUNT+1))
+done
+
+# -----------------------------------------------------------
+# FINALIZACIÓN Y ADJUNTO A LA SESIÓN
+# -----------------------------------------------------------
+
+# Finalmente, adjunta la sesión de tmux, permitiendo al usuario interactuar con ella.
+tmux attach -t $SESSION_NAME
