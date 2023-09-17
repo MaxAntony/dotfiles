@@ -36,8 +36,6 @@ for DIR in "${DIRECTORIES[@]}"; do
     # Renombra la ventana actual según el directorio en procesamiento.
     tmux rename-window -t $SESSION_NAME:$WINDOW_COUNT $DIR
 
-    # Crea un nuevo panel para `nvim` y cambia al directorio deseado.
-    tmux split-window -t $SESSION_NAME:$WINDOW_COUNT -d "cd $BASE_PATH/$DIR && nvim"
 
     # Cambia al directorio deseado en el panel principal de la ventana actual.
     tmux send-keys -t $SESSION_NAME:$WINDOW_COUNT "cd $BASE_PATH/$DIR" C-m
@@ -60,6 +58,14 @@ for DIR in "${DIRECTORIES[@]}"; do
             echo "Comando no definido para el directorio $DIR"
             ;;
     esac
+
+    # Crea un nuevo panel, pero no ejecuta ningún comando en él todavía.
+    tmux split-window -t $SESSION_NAME:$WINDOW_COUNT.1 -d
+    # Maximiza el nuevo panel.
+    tmux select-pane -t $SESSION_NAME:$WINDOW_COUNT.2
+    tmux resize-pane -Z
+    # Cambia al directorio deseado y ejecuta `nvim` en el panel maximizado.
+    tmux send-keys -t $SESSION_NAME:$WINDOW_COUNT.2 "cd $BASE_PATH/$DIR && nvim" C-m
 
     # Incrementa el contador de ventanas para la próxima iteración.
     WINDOW_COUNT=$((WINDOW_COUNT+1))
