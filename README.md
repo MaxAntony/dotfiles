@@ -111,6 +111,17 @@ Que hacer si sale un error que dice que no encuentra bloques o que los discos no
 
 - seguir el tutorial de linux made simple de arch con uefi, al final agregar el usuario al grupo network y reiniciar
 
+#### Conectar a Wifi via terminal
+
+`nmcli device wifi list`
+`nmcli device wifi rescan`
+`nmcli device wifi connect TECCAMSOLUCION2 password Tecc@m22`
+
+#### errores relacionados a contrasenas
+
+instalar gnome-keyring, es un paquete independiente y soluciono mi problema con nextcloud que pedia acceso cada vez que iniciaba la pc y con authpass que mostraba
+un error al inicio sobre secrets o algo asi, `yay gnome-keyring`
+
 #### packages
 
 alacritty 0.12.1-1
