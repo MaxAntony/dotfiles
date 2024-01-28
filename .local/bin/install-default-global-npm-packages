@@ -1,5 +1,26 @@
 #!/usr/bin/env bash
 
 echo "Installing global utilities"
-npm i -g npm@latest neovim@latest @angular/cli@latest @nestjs/cli@latest @tsed/cli@latest yarn@latest tldr@latest typescript@latest pnpm@latest gitmoji-cli@latest
-pip install neovim pynvim
+echo "With NPM"
+echo "updating npm"
+npm i -g npm@latest
+echo "Installing neovim"
+npm i -g neovim@latest
+echo "Installing Angular cli"
+npm i -g @angular/cli@latest
+echo "Installing Nest CLI"
+npm i -g @nestjs/cli@latest
+echo "Installing TSED cli"
+npm i -g @tsed/cli@latest
+echo "Installing Yarn"
+npm i -g yarn@latest
+echo "Installing TLDR client"
+npm i -g tldr@latest
+npm i -g gitmoji-cli@latest
+echo "With PIP"
+echo "updating pip"
+pip install --upgrade pip
+echo "Installing Neovim"
+pip install neovim
+echo "Installing pynvim"
+pip install pynvim
