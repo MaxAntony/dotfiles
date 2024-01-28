@@ -97,6 +97,7 @@ plugins=(
   sudo
   docker
   colored-man-pages
+  you-should-use
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -137,6 +138,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # rust
 path+=("$HOME/.cargo/env")
 
+# brew
+
+
 # flutter
 path+=("$HOME/.local/myApps/flutter/bin")
 # https://stackoverflow.com/questions/66506957/how-to-set-environment-variable-of-google-chrome-for-flutter-2-web-on-arch-linux
@@ -144,6 +148,7 @@ path+=("$HOME/.local/myApps/flutter/bin")
 # export 
 path+=("/usr/sbin")
 export PATH
+export CAPACITOR_ANDROID_STUDIO_PATH=/opt/android-studio/bin/studio.sh
 
 
 # Load Angular CLI autocompletion.
@@ -156,3 +161,11 @@ export DVM_DIR="/home/max/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
 
 source ~/.zsh_functions
+
+
+# https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-or-functional-keys-like-arrow-keys-don-t-work
+alias s="kitty +kitten ssh"
+
+# AUR
+export CHROME_EXECUTABLE="google-chrome-stable"
+
