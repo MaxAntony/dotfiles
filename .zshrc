@@ -98,6 +98,7 @@ plugins=(
   docker
   colored-man-pages
   you-should-use
+  fzf-tab
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,25 +129,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 
 # backup dotfiles command
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 
-# rust
+# RUST
 path+=("$HOME/.cargo/env")
 
-# brew
-
-
-# flutter
+# FLUTTER
 path+=("$HOME/.local/myApps/flutter/bin")
-# https://stackoverflow.com/questions/66506957/how-to-set-environment-variable-of-google-chrome-for-flutter-2-web-on-arch-linux
 
-# export 
+
+# export
 path+=("/usr/sbin")
+# custom scripts
+path+=("$HOME/.local/bin")
 export PATH
 export CAPACITOR_ANDROID_STUDIO_PATH=/opt/android-studio/bin/studio.sh
 
@@ -167,5 +166,13 @@ source ~/.zsh_functions
 alias s="kitty +kitten ssh"
 
 # AUR
+# https://stackoverflow.com/questions/66506957/how-to-set-environment-variable-of-google-chrome-for-flutter-2-web-on-arch-linux
 export CHROME_EXECUTABLE="google-chrome-stable"
+
+# fzf-tab-completion
+# source /home/max/.oh-my-zsh/custom/plugins/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 
