@@ -122,7 +122,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
+# replace ls with eza (exa is other candidate)
+alias ls='eza'
 
 # backup dotfiles command
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -164,3 +165,9 @@ export CHROME_EXECUTABLE="google-chrome-stable"
 
 # https://starship.rs/guide/
 eval "$(starship init zsh)"
+
+
+alias e='NVIM_APPNAME=nvimclean nvim'
+
+eval "$(zoxide init zsh)"
+
