@@ -8,8 +8,8 @@ echo "Installing neovim"
 npm i -g neovim@latest
 echo "Installing Angular cli"
 npm i -g @angular/cli@latest
-# echo "Installing Nest CLI"
-# npm i -g @nestjs/cli@latest
+echo "Installing Nest CLI"
+npm i -g @nestjs/cli@latest
 # echo "Installing TSED cli"
 # npm i -g @tsed/cli@latest
 # echo "Installing Yarn"
