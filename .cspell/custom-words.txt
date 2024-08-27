@@ -74,3 +74,10 @@ infistel
 
 ajax
 neogit
+vtsls
+basedpyright
+websockets
+mysql
+phpmyadmin
+sqlite
+bullmq
