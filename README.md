@@ -64,7 +64,7 @@ https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/2
 
 [arch wiki](https://wiki.archlinux.org/title/thunar)
 
-- `sudo pacman -S thunar thunar-volman gvfs tumbler ffmpegthumbnailer`
+- `sudo pacman -S thunar thunar-volman gvfs tumbler ffmpegthumbnailer libgepub poppler-glib ntfs-3g`
 - para acceso a telefono android `sudo pacman gvfs gvfs-mtp` [link](https://www.reddit.com/r/xfce/comments/kbkag8/thunar_not_recognizing_my_android_device/)
 - reiniciar
 - Go to edit>preferences>advanced>volume management>configure>activate “mount removable drives…” “mount removable media …”
