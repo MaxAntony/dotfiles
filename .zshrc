@@ -130,7 +130,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 
 # RUST
-path+=("$HOME/.cargo/env")
+path+=("$HOME/.cargo/bin")
 
 # FLUTTER
 path+=("$HOME/.local/myApps/flutter/bin")
@@ -167,7 +167,10 @@ export CHROME_EXECUTABLE="google-chrome-stable"
 eval "$(starship init zsh)"
 
 
-alias e='NVIM_APPNAME=nvimclean nvim'
+# alias e='NVIM_APPNAME=nvimclean nvim'
+alias e='nvim'
+export EDITOR='nvim'
+
 
 eval "$(zoxide init zsh)"
 
