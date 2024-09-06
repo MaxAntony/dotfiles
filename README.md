@@ -9,9 +9,94 @@
 ### Dependencies
 
 - Arch Linux
-- AwesomeWM
 
-### AUR documentation
+#### AwesomeWM
+
+```bash
+git clone https://github.com/streetturtle/awesome-wm-widgets.git
+```
+
+#### extras
+
+- pacman: fd xclip ripgrep gvfs-mtp bat neovim tmux btop docker docker-compose zip unzip rsync wget curl rustup eza nitrogen ferdium gnome-polkit rofi slack fzf fastfetch starship zoxide wireless_tools flameshot gparted pavucontrol helvum virtualbox virtualbox-guest-iso virtualbox-host-dkms qbittorrent libappindicator
+- yay
+
+```bash
+adwaita-dark 1.0-1
+aic94xx-firmware 30-10
+ast-firmware 501-1
+awesome-git 4.3.1664.ga35fceda1-1
+bibata-cursor-theme-bin 2.0.7-1
+ferdium-bin 6.7.6-1
+firefox-nightly-bin 132.0a1.20240904.095513-1
+mkinitcpio-firmware 1.4.0-1
+neovim-git 0.11.0.r718.g76aa3e52be-1
+nordic-theme 2.2.0-1
+onlyoffice-bin 8.1.1-1
+rustup-git 1.27.1.r432.ga4b8ae10-1
+slack-desktop 4.39.95-1
+upd72020x-fw 1:1.0.0-2
+wd719x-firmware 1-7
+xfce-theme-manager 3.8-2
+yay 12.3.5-1
+yay-debug 12.3.5-1
+zoom 6.1.11-1
+telegram
+dbeaver
+vlc
+```
+
+- cargo: lfs
+- flatpak: kdenlive
+
+#### fonts
+
+```
+cd ~/.local/share/fonts/
+```
+
+```bash
+fc-cache -fv
+```
+
+#### docker
+
+```bash
+yay docker
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+sudo systemctl start containerd.service
+sudo systemctl start docker.service
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
+```
+
+#### tmux
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+[install tpm plugins](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installing-plugins)
+
+#### dotfiles git
+
+[Dotfiles: Best way to store in a bare git repository ](https://www.atlassian.com/git/tutorials/dotfiles)
+
+```bash
+git clone --bare --recursive https://github.com/MaxAntony/dotfiles.git $HOME/.cfg
+config config --local status.showUntrackedFiles no
+```
+
+#### disable "\*-debug" packages in aur
+
+[https://www.reddit.com/r/archlinux/comments/1e4mpl3/disable_installing_debug_packages/](https://www.reddit.com/r/archlinux/comments/1e4mpl3/disable_installing_debug_packages/)
+
+Open the file /etc/makepkg.conf and search for the line that starts with OPTIONS=. Add an exclamation mark directly before "debug" (i.e. !debug) and save the change. Then no more debug packages should be created in future.
+
+#### AUR documentation
 
 https://wiki.archlinux.org/title/Arch_User_Repository#What_is_the_difference_between_foo_and_foo-git_packages?
 
@@ -20,6 +105,17 @@ https://wiki.archlinux.org/title/Arch_User_Repository#What_is_the_difference_bet
 https://xplr.dev/en/introduction
 
 #### zsh plugins
+
+```bash
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+git clone https://github.com/mattberther/zsh-pyenv ~/.oh-my-zsh/custom/plugins/zsh-pyenv
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \\n  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+starship preset gruvbox-rainbow -o ~/.config/starship.toml
+```
 
 https://github.com/unixorn/awesome-zsh-plugins#plugins
 
@@ -64,7 +160,7 @@ https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/2
 
 [arch wiki](https://wiki.archlinux.org/title/thunar)
 
-- `sudo pacman -S thunar thunar-volman gvfs tumbler ffmpegthumbnailer libgepub poppler-glib ntfs-3g`
+- `sudo pacman -S thunar thunar-volman gvfs tumbler ffmpegthumbnailer libgepub poppler-glib ntfs-3g file-roller thunar-archive-plugin`
 - para acceso a telefono android `sudo pacman gvfs gvfs-mtp` [link](https://www.reddit.com/r/xfce/comments/kbkag8/thunar_not_recognizing_my_android_device/)
 - reiniciar
 - Go to edit>preferences>advanced>volume management>configure>activate “mount removable drives…” “mount removable media …”
@@ -79,6 +175,7 @@ https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/2
 
 - `sudo pacman -S bat btop docker docker-compose zip unzip rsync wget curl rustup`
 - `cargo install lfs`
+-
 
 #### Polkit
 
@@ -90,7 +187,7 @@ Los demas agentes si debemos llamarlos y deben de ejecutarse en el fondo (para e
 - instalar `polkit-gnome`
 - Editar `~/.config/awesome/autorun.sh` agregar `run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1` para que corra en segundo plano durante toda la sesion
 
-### Possible errors
+\*### Possible errors
 
 #### Pantalla negra por error en particiones
 
@@ -124,6 +221,7 @@ un error al inicio sobre secrets o algo asi, `yay gnome-keyring`
 
 #### packages
 
+```bash
 alacritty 0.12.1-1
 awesome 4.3-3
 baobab 44.0-1
@@ -251,3 +349,47 @@ shortwave 1:3.2.0-1
 tumbler-folder-thumbnailer 1-2
 yay 12.0.5-1
 zoom 5.14.7-1
+mkinitcpio-firmware
+nvidia-settings
+```
+
+## live server html
+
+`npx live-server .`
+
+## docker services
+
+### postgres
+
+`docker run --name postgres -e POSTGRES_PASSWORD=123 -p 5432:5432 -d postgres`
+
+### redis
+
+`docker run --name redis -p 6379:6379 -d redis/redis-stack-server`
+
+### after reboot
+
+`docker start postgres redis`
+
+### copy data from postgres docker in vps to local machine
+
+```bash
+# in vps
+docker exec -it tickets-database-1 psql -U postgres
+psql -U postgres -d tickets -c "\COPY (SELECT \"order\".\"client_name\" AS \"Client Name\",\"order\".\"client_phone\" as \"Client Phone\", \"seat\".\"label\" AS \"Seat Label\", \"order\".\"notes\" AS \"Notes\" FROM \"order\" JOIN \"seat\" ON \"order\".\"id\" = \"seat\".\"orderId\" WHERE \"order\".\"status\" <> 'CANCELED' ORDER BY \"order\".\"client_name\") TO '/root/test/resultado.csv' WITH CSV HEADER;"
+docker cp tickets-database-1:/root/test/resultado.csv ./resultado.csv
+# in local machine
+scp root@161.132.40.119:/root/resultado.csv ./Downloads/resultado.csv
+```
+
+``
+
+## configure git
+
+```bash
+git config --global core.editor "nvim"
+```
+
+### zip folder
+
+`zip -r pos.zip ./*`
