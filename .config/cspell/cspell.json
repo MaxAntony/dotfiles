@@ -1,0 +1,5 @@
+{
+  "import": [
+    "/home/max/.local/share/nvim/mason/packages/cspell/node_modules/@cspell/dict-es-es/cspell-ext.json"
+  ]
+}
