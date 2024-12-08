@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfcethemer" version="1.0">
+  <property name="ThemesHash" type="string" value="cd69594d1c08aa63274132163beb9e2a"/>
+  <property name="MetaTheme" type="string" value="Nordic Custom"/>
+  <property name="WindowHeight" type="int" value="1377"/>
+  <property name="WindowWidth" type="int" value="2534"/>
+  <property name="PreveiwSize" type="int" value="256"/>
+</channel>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfwm4" version="1.0">
+  <property name="general" type="empty">
+    <property name="theme" type="string" value="Nordic"/>
+    <property name="button_layout" type="string" value="DEADBEEF"/>
+    <property name="title_alignment" type="string" value="DEADBEEF"/>
+    <property name="title_font" type="string" value="DEADBEEF"/>
+  </property>
+</channel>

@@ -1,2 +1,4 @@
 TerminalEmulator=kitty
 TerminalEmulatorDismissed=true
+FileManager=thunar
+
