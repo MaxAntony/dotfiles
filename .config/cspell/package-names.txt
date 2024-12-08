@@ -1,0 +1,9 @@
+iconify
+primeui
+iconamoon
+iconoir
+unplugin
+primevue
+pinia
+catgoose
+tailwindcss
