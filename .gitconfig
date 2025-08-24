@@ -1,0 +1,20 @@
+[init]
+	defaultBranch = main
+[user]
+	email = maxcamito@gmail.com
+	name = Max Antony
+[core]
+	editor = nvim
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  dark = true
+  side-by-side = true
+[merge]
+  conflictStyle = zdiff3
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
