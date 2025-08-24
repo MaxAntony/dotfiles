@@ -83,7 +83,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 #### dotfiles git
 
-[Dotfiles: Best way to store in a bare git repository ](https://www.atlassian.com/git/tutorials/dotfiles)
+[Dotfiles: Best way to store in a bare git repository](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ```bash
 git clone --bare --recursive https://github.com/MaxAntony/dotfiles.git $HOME/.cfg
@@ -98,11 +98,11 @@ Open the file /etc/makepkg.conf and search for the line that starts with OPTIONS
 
 #### AUR documentation
 
-https://wiki.archlinux.org/title/Arch_User_Repository#What_is_the_difference_between_foo_and_foo-git_packages?
+<https://wiki.archlinux.org/title/Arch_User_Repository#What_is_the_difference_between_foo_and_foo-git_packages>?
 
 #### xplr file manager
 
-https://xplr.dev/en/introduction
+<https://xplr.dev/en/introduction>
 
 #### zsh plugins
 
@@ -117,11 +117,11 @@ git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/p
 starship preset gruvbox-rainbow -o ~/.config/starship.toml
 ```
 
-https://github.com/unixorn/awesome-zsh-plugins#plugins
+<https://github.com/unixorn/awesome-zsh-plugins#plugins>
 
 #### cambiar DNS
 
-https://askubuntu.com/questions/721080/how-to-change-dns-of-network-from-terminal
+<https://askubuntu.com/questions/721080/how-to-change-dns-of-network-from-terminal>
 
 #### Instalar y configurar OBS
 
@@ -151,8 +151,8 @@ Poner zsh como shell por defecto
 #### Sonido
 
 Instalar pipewire
-https://bbs.archlinux.org/viewtopic.php?id=273969
-https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/20705
+<https://bbs.archlinux.org/viewtopic.php?id=273969>
+<https://forum.endeavouros.com/t/pipewire-pipewire-media-session-vs-wireplumber/20705>
 
 - `sudo pacman -S pipewire pipewire-{jack,alsa,pulse}`
 
@@ -201,8 +201,8 @@ Que hacer si sale un error que dice que no encuentra bloques o que los discos no
 
 #### Hora no Sincronizada en dual boot
 
-- https://wiki.archlinux.org/title/System_time#:~:text=Run%20ntpd%20%2Dqg%20to%20manually,time%20to%20the%20hardware%20clock.
-- https://unix.stackexchange.com/questions/60772/i-messed-up-my-system-clock-in-arch-linux
+- <https://wiki.archlinux.org/title/System_time#:~:text=Run%20ntpd%20%2Dqg%20to%20manually,time%20to%20the%20hardware%20clock>.
+- <https://unix.stackexchange.com/questions/60772/i-messed-up-my-system-clock-in-arch-linux>
 
 #### activar wifi
 
@@ -393,3 +393,11 @@ git config --global core.editor "nvim"
 ### zip folder
 
 `zip -r pos.zip ./*`
+
+# Desktop
+
+- instalar
+  `xdg-desktop-portal-gnome` hay mas como kde pero eso se puede probar, por ahora elegiremos gnome esto hara que gnome tenga preferencia por lo que ahora tenemos que configurar gnome para que tenga el tema oscuro
+- `gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'` para poner el tema oscuro
+- instalamos `libgnome-keyring`, aplicaciones como brave lo necesitan
+- `sudo flatpak override --env=GTK_THEME=Adwaita-dark` para el tema oscuro en flatpak
